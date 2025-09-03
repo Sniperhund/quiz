@@ -1,0 +1,60 @@
+@use "@/styles/colors" as *;
+@use "@/styles/util" as *;
+
+.quiz {
+    max-width: 760px + 20px;
+    padding: 0 20px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 150px;
+
+    & h1 {
+        @include fontSize(42px);
+        font-weight: 600;
+        margin-bottom: 60px;
+    }
+
+    .questions {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 45px;
+    }
+
+    & button {
+        padding: 6px 35px;
+        @include fontSize(24px);
+        font-weight: 600;
+
+        border-radius: 8px;
+        background-color: $accent;
+        color: white;
+        box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.25);
+
+        transition: all 0.25s ease;
+        cursor: pointer;
+    }
+
+    & button:hover {
+        transform: translateY(-3px) scale(1.01);
+        box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.25);
+    }
+}
+
+.feedback {
+    & p {
+        @include fontSize(20px);
+    }
+
+    & img {
+        border-radius: 8px;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .quiz {
+        margin-top: 75px;
+    }
+}

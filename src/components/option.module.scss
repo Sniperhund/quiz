@@ -1,0 +1,77 @@
+@use "@/styles/colors" as *;
+@use "@/styles/util" as *;
+
+.question {
+    height: 80px;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    border-radius: 8px;
+    border: 2px solid rgba(0, 6, 51, 0.20);
+    box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.25);
+    padding: 5px;
+
+    transition: all 0.25s ease;
+    cursor: pointer;
+
+    & p {
+        font-weight: 600;
+    }
+
+    & > p:nth-child(1) {
+        height: 100%;
+        aspect-ratio: 1;
+        @include fontSize(42px);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background-color: $letter-background;
+        border-radius: 8px;
+    }
+
+    & > p:nth-child(2) {
+        @include fontSize(30px);
+    }
+
+    & svg {
+        width: 50px;
+        height: 50px;
+        margin: 10px;
+        color: white;
+        padding: 10px;
+        border-radius: 50%;
+
+        &.correct {
+            background-color: $correct-answer;
+        }
+
+        &.wrong {
+            background-color: $wrong-answer;
+        }
+    }
+}
+
+.question:hover {
+    transform: translateY(-3px) scale(1.015);
+    box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.25);
+}
+
+.active {
+    border: 2px solid $accent;
+}
+
+@media screen and (max-width: 768px) {
+    .question {
+        height: 60px;
+
+        & svg {
+            height: 35px;
+            width: 35px;
+        }
+    }
+}
