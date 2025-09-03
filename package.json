@@ -2,7 +2,10 @@
     "name": "quiz",
     "private": true,
     "type": "module",
+    "homepage": "https://Sniperhund.github.io/quiz",
     "scripts": {
+        "predeploy": "vite build",
+        "deploy": "gh-pages -d dist",
         "dev": "vite --port 3000",
         "start": "vite --port 3000",
         "build": "vite build && tsc",
@@ -15,6 +18,7 @@
         "@tanstack/react-router": "^1.130.2",
         "@tanstack/react-router-devtools": "^1.131.5",
         "@tanstack/router-plugin": "^1.121.2",
+        "gh-pages": "^6.3.0",
         "lucide-react": "^0.542.0",
         "motion": "^12.23.12",
         "react": "^19.0.0",
