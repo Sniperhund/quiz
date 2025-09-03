@@ -3,7 +3,7 @@ import styles from "./quiz.module.scss"
 import questionStyles from "@/components/option.module.scss"
 import { Option } from '@/components/option'
 import { useEffect, useRef, useState } from 'react'
-import { baseUrl } from '@/util'
+import { baseUrl, question2Id } from '@/util'
 import { useLocalStorage } from 'usehooks-ts'
 import { toast } from 'sonner'
 
@@ -104,10 +104,12 @@ function Quiz() {
                 {correctAnswer == chosenAnswer &&
                     <>
                         <br />
-                        <p>Hint:</p>
+                        {(data.quiz.image || data.quiz.hint) && <p>Hint:</p>}
                         {data.quiz.image && <img src={data.quiz.image} />}
                         {data.quiz.hint && <p>{data.quiz.hint}</p>}
                     </>}
+
+                <button onClick={() => navigate({ to: `/quiz/${question2Id}`})} className="mt-3">Gå til næste spørgsmål</button>
             </article>
             :
             <button onClick={submit}>Svar spørgsmål</button>}
